@@ -12,25 +12,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_cliente")
-@AllArgsConstructor
+@Table(name = "tb_categoria")
 @Getter
 @Setter
-public class Cliente {
+@AllArgsConstructor
+public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
-	private String cpf;
-	private String endereco;
-	private String telefone;
-	
+	private String categoria;
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(cpf);
+		return Objects.hash(categoria);
 	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -39,8 +36,10 @@ public class Cliente {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
-		return Objects.equals(cpf, other.cpf);
+		Categoria other = (Categoria) obj;
+		return Objects.equals(categoria, other.categoria);
 	}
+	
+	
 
 }
